@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>dto2ts.ga - best class translator🤘</title>
+    <meta name="description" content="dto2ts.ga - automatically translate C#, Java classes to Typescript interfaces. Just paste and copy. 🤘">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.min.css">
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body >
+    <!-- navbar -->
+    <nav class="nav-bar nav shadow p-3 mb-5">
+        <div class="col-md-12 col-xl-8 m-auto d-flex justify-content-between">
+            <a href="#" class="navbar-brand">
+                <img src="img/logo.png" width="30" height="30" alt="logo image">
+                <small>dto2ts.com</small>
+            </a>
+            <a href="http://paypal.me/kwiniarski97" class="nav-link active d-inline-block">Tip me 🙏</a>
+        </div>
+    </nav>
+    <!-- /navbar -->
+
+    <main class="main col-xl-8 col-md-12 m-auto">
+        <div class="row">
+
+            <div class="left col-xl-6 col-md-12 ">
+                <h1 hidden> Input</h1>
+                <div class="row col-12 main-header justify-content-between">
+                    <select disabled class="form-control col-5" id="inputSelect">
+                        <option value="csharp">C#</option>
+                        <option value="java">Java</option>
+                        <option value="python" disabled>Python (in progress)</option>
+                    </select>
+                </div>
+                <textarea id="input" class="form-control" rows="30"></textarea>
+            </div>
+
+
+            <div class="right col-xl-6 col-md-12">
+                <h1 hidden>Output</h1>
+                <div class="row col-12 main-header justify-content-between">
+                    <select class="form-control col-5" disabled>
+                        <option>Typescript</option>
+                    </select>
+                </div>
+                <textarea id="output" class="form-control" readonly rows="30"></textarea>
+
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <h5>FAQ</h5>
+                <b>How to use it?</b>
+                <p>Well just paste your DTO class into the left textarea. If there's no problem with it Typescript version should
+                    appear on right side</p>
+                <b>Why the FAQ is so short?</b>
+                <p>I got no ideas to other questions. If you got any idea, issue, found a bug feel free to
+                    <a href="http://github.com/kwiniarski97">contact</a> me. If you got some questions I will add them to FAQ 😁</p>
+            </div>
+            <div class="col-6">
+                <h5>TODO</h5>
+                <ol>
+                    <li>Fix bugs and optimize algorithm</li>
+                    <li>Add other languages support
+                        <ul>
+                            <li>Java</li>
+                            <li>Python</li>
+                        </ul>
+                    </li>
+                    <li>Add support to POCO and POJO classes</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="footer text-center">
+        <i>© created by
+            <a href="http://github.com/kwiniarski97">kwiniarski97</a>
+        </i>
+    </footer>
+
+    <script type="text/javascript" src="js/translator.js"></script>
+</body>
+
+</html>
