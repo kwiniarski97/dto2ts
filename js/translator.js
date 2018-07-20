@@ -69,6 +69,11 @@ function translateCsharpClass() {
       continue;
     }
 
+    if (words[0].startsWith("region") || words[0].startsWith("endregion")) {
+      //ignore regions
+      continue;
+    }
+
     if (words[1] && words[1].indexOf(className) >= 0) {
       // constructor
       continue;
