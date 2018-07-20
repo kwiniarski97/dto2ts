@@ -7,7 +7,7 @@ function copyOutput() {
   document.execCommand("copy");
 }
 // enable tabs
-inputArea.addEventListener("keydown", function(event) {
+inputArea.addEventListener("keydown", function (event) {
   if (event.code === "Tab") {
     let cIndex = this.selectionStart;
     this.value = [
@@ -110,7 +110,7 @@ function translateCsharpClass() {
   return output.join("\n");
 }
 
-function translateJava() {}
+function translateJava() { }
 
 function getType(outputLang, type) {
   switch (outputLang) {
@@ -121,6 +121,13 @@ function getType(outputLang, type) {
 }
 
 function getTypescriptType(type) {
+  let result = "any"
+  let isArray = false;
+  if (type.indexOf("[]") >= 0) {
+    isArray = true;
+    type = type.replace("[]", "")
+  }
+
   switch (type.toLowerCase()) {
     case "byte":
     case "short":
@@ -133,20 +140,24 @@ function getTypescriptType(type) {
     case "float":
     case "double":
     case "decimal":
-      return "number";
+      result = "number";
+      break;
+
     case "string":
-      return "string";
+      result = "string";
+      break;
+
     case "boolean":
     case "bool":
-      return "boolean";
-    default: {
-      if (type.indexOf("[") >= 0 && type.indexOf("]") > 0) {
-        return [];
-      }
-      return "any";
-    }
+      result = "boolean";
+      break;
   }
+  if (isArray) {
+    result += "[]";
+  }
+  return result;
 }
+
 
 function isSemanticValid() {
   let value = inputArea.value;
