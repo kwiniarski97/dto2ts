@@ -5,7 +5,7 @@
     <title>dto2ts.ga - best class translator🤘</title>
     <meta name="description" content="dto2ts.ga - automatically translate C#, Java classes to Typescript interfaces. Just paste and copy. 🤘">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mycss.css">
+    <link rel="stylesheet" href="css/mycss.min.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
@@ -25,10 +25,11 @@
 
     <main class="main col-xl-8 col-md-12 m-auto">
         <div class="row">
+
             <div class="left col-xl-6 col-md-12 ">
                 <h1 hidden> Input</h1>
                 <div class="row col-12 main-header justify-content-between">
-                    <select disabled class="form-control col-5" id="inputSelect">
+                    <select disabled class="form-control col-5 mb-3" id="inputSelect">
                         <option value="csharp">C#</option>
                         <option value="java">Java</option>
                         <option value="python" disabled>Python (in progress)</option>
@@ -41,11 +42,11 @@
             <div class="right col-xl-6 col-md-12">
                 <h1 hidden>Output</h1>
                 <div class="row col-12 main-header justify-content-between">
-                    <select class="form-control col-5" disabled>
+                    <select class="form-control col-5 mb-3" disabled>
                         <option>Typescript</option>
                     </select>
                 </div>
-                <textarea id="output" class="form-control" readonly rows="30" onclick="this.focus();this.select()"></textarea>
+                <textarea id="output" class="form-control" readonly rows="30"></textarea>
 
             </div>
         </div>
