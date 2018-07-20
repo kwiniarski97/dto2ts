@@ -1,6 +1,11 @@
 let inputArea = document.getElementById("input");
 let inputSelect = document.getElementById("inputSelect");
 let outputArea = document.getElementById("output");
+
+function copyOutput() {
+  outputArea.select();
+  document.execCommand("copy");
+}
 // enable tabs
 inputArea.addEventListener("keydown", function(event) {
   if (event.code === "Tab") {
@@ -91,7 +96,7 @@ function translateCsharpClass() {
       }
       let name = words[2];
       output.push(
-        `${name.replace(/\w/, c => c.toLowerCase())}: ${getType(
+        `\t${name.replace(/\w/, c => c.toLowerCase())}: ${getType(
           "typescript",
           words[1]
         )};`
