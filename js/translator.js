@@ -129,8 +129,12 @@ function getTypescriptType(type) {
     case "boolean":
     case "bool":
       return "boolean";
+    case "datetime":
+      return "Date";
     default: {
       if (type.indexOf("[") >= 0 && type.indexOf("]") > 0) {
+        return [];
+      } else if (type.startsWith("ienumerable")) {
         return [];
       }
       return "any";
