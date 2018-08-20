@@ -5,12 +5,12 @@
     <title>dto2ts.ga - best class translator🤘</title>
     <meta name="description" content="dto2ts.ga - automatically translate C#, Java classes to Typescript interfaces. Just paste and copy. 🤘">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mycss.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
     <link rel="icon" type="image/x-icon" href="img/logo.png" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<body >
+<body>
     <!-- navbar -->
     <nav class="nav-bar nav shadow p-3 mb-5">
         <div class="col-md-12 col-xl-8 m-auto d-flex justify-content-between">
@@ -18,7 +18,8 @@
                 <img src="img/logo.png" width="30" height="30" alt="logo image">
                 <small>dto2ts.com</small>
             </a>
-            <a href="http://paypal.me/kwiniarski97" class="nav-link active d-inline-block">Tip me 🙏</a>
+            <a href="http://paypal.me/kwiniarski97" class="nav-link active d-inline-block">
+                <i class="icon-paypal"></i> Tip me 🙏</a>
         </div>
     </nav>
     <!-- /navbar -->
@@ -45,6 +46,11 @@
                     <select class="form-control col-5" disabled>
                         <option>Typescript</option>
                     </select>
+                    <div>
+                        <button class="btn" onclick="copyOutput()">
+                            <i class="icon-content_copy"></i>
+                        </button>
+                    </div>
                 </div>
                 <textarea id="output" class="form-control" readonly rows="30"></textarea>
 
@@ -79,8 +85,11 @@
 
 
     <footer class="footer text-center">
-        <i>© created by
-            <a href="http://github.com/kwiniarski97">kwiniarski97</a>
+        <i>
+            <i class="icon-copyright"></i> created by
+            <a href="http://github.com/kwiniarski97">kwiniarski97
+                <i class="icon-github"></i>
+            </a>
         </i>
     </footer>
 

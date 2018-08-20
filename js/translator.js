@@ -1,8 +1,13 @@
 let inputArea = document.getElementById("input");
 let inputSelect = document.getElementById("inputSelect");
 let outputArea = document.getElementById("output");
+
+function copyOutput() {
+  outputArea.select();
+  document.execCommand("copy");
+}
 // enable tabs
-inputArea.addEventListener("keydown", function(event) {
+inputArea.addEventListener("keydown", function (event) {
   if (event.code === "Tab") {
     let cIndex = this.selectionStart;
     this.value = [
@@ -69,6 +74,11 @@ function translateCsharpClass() {
       continue;
     }
 
+    if (words[0].startsWith("region") || words[0].startsWith("endregion")) {
+      //ignore regions
+      continue;
+    }
+
     if (words[1] && words[1].indexOf(className) >= 0) {
       // constructor
       continue;
@@ -86,7 +96,7 @@ function translateCsharpClass() {
       }
       let name = words[2];
       output.push(
-        `${name.replace(/\w/, c => c.toLowerCase())}: ${getType(
+        `\t${name.replace(/\w/, c => c.toLowerCase())}: ${getType(
           "typescript",
           words[1]
         )};`
@@ -100,7 +110,7 @@ function translateCsharpClass() {
   return output.join("\n");
 }
 
-function translateJava() {}
+function translateJava() { }
 
 function getType(outputLang, type) {
   switch (outputLang) {
@@ -111,6 +121,13 @@ function getType(outputLang, type) {
 }
 
 function getTypescriptType(type) {
+  let result = "any"
+  let isArray = false;
+  if (type.indexOf("[]") >= 0) {
+    isArray = true;
+    type = type.replace("[]", "")
+  }
+
   switch (type.toLowerCase()) {
     case "byte":
     case "short":
@@ -123,9 +140,13 @@ function getTypescriptType(type) {
     case "float":
     case "double":
     case "decimal":
-      return "number";
+      result = "number";
+      break;
+
     case "string":
-      return "string";
+      result = "string";
+      break;
+
     case "boolean":
     case "bool":
       return "boolean";
@@ -139,8 +160,14 @@ function getTypescriptType(type) {
       }
       return "any";
     }
+
   }
+  if (isArray) {
+    result += "[]";
+  }
+  return result;
 }
+
 
 function isSemanticValid() {
   let value = inputArea.value;
